@@ -1,0 +1,14 @@
+In this class, I hope I can learn something interesting about Internet.
+for example: how does the internet work.
+
+There is a japanese game which I plays it every day. However, that game has territorial restrictions.
+That's mean it is only playable in Japan. if I log in in other place likes USA, China...
+it would show a message say I'm not able to play that games unless I log in it in Japan. There are many ways to
+play this game. The simple one is using the VPN to change the IP address. 
+
+But there are some ways which I hope I can know 
+how does it work. Changing and add some IP address in the hosts file in the computer; and use cookie in the browser.
+
+I also want to know how to create a beautiful website by myself.
+
+ 
