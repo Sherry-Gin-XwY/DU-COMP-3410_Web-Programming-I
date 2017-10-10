@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form class="" action="lab8.php" method="post">
+      <br>
+      <h2>Your Email</h2>
+      Email Address:
+      <input type="text" id="email" name="EmailAddress" pattern="\w+@\w+\.com$" autocomplete="email">
+      <input type="submit">
+
+      <br>
+      <h2>Creating your password</h2>
+      <ul>Requirment:
+        <li>at least one characters</li>
+        <li>at least one number</li>
+        <li>number cannot at the start</li>
+        <li>at least 15 characters but no more than 30</li>
+        <li>you are not allow to use this "_" in your password</li>
+        </ul>
+      password:
+      <input type="text" id="password" name="Password" pattern="^[a-z A-z]{1}([a-zA-Z0-9]{15,30})">
+      <input type="submit">
+
+      <br>
+      <h2>Tring to type something for matching test</h2>
+      <h2>test1:</h2>
+      try type:"ChinaChina No.1" or "ChinaChina number one" for matching<br>
+      <input type="text" id="test1" name="test1" pattern="(?:China){2,3}( No.1| number one)$">
+      <input type="submit">
+    </form>
+    <br>
+    <h1>World of Warships</h1>
+    <video src="Media/CG.mp4" poster="Media/CG.jpg" controls autoplay>
+    </video>
+    <br>
+    <h1>Nova</h1>
+    <video src="Media/Nova.mp4" width ="960" height="320" poster="Media/NOVA.jpg" controls>
+    </video>
+    <br>
+    <h1>kankore</h1>
+    <video src="Media/video.mp4" width= "960" height = "480" controls>
+    </video>
+    <br>
+    <h1>A Page of My Story</h1>
+    <img src="Media/A Page of My Story.jpg">
+    <br>
+    <audio src="Media/A Page of My Story.mp3" controls>
+    </audio>
+    <br>
+
+    <canvas  width="800" height="800" id="MyextraCredit">
+      If you can see my picture, that indicates that your machine and your browser does
+      not like me, and not allow you to look at my beautiful draw. forget the browser you're using,
+      it's time to get the new one.:)
+
+    </canvas>
+
+
+    <script type="text/javascript">
+    window.addEventListener('load', eventWindowLoaded, false);
+    function eventWindowLoaded()
+    {
+      canvasApp();
+    }
+
+    function canvasApp()
+    {
+      var theCanvas = document.getElementById('MyextraCredit');
+      var my_canvas = theCanvas.getContext('2d');
+      my_canvas.strokeRect(0,0,800,800)
+
+      my_canvas.beginPath();
+      my_canvas.arc(200, 200, 75, (Math.PI/180)*0, (Math.PI/180)*360, false);
+      my_canvas.strokeStyle = "black";
+      my_canvas.lineWidth = 4;
+      my_canvas.fillStyle = "yellow";
+      my_canvas.stroke();
+      my_canvas.fill();
+      my_canvas.closePath();
+
+      my_canvas.beginPath();
+      my_canvas.arc(200, 200, 25, (Math.PI/180)*0, (Math.PI/180)*360, false);
+      my_canvas.lineWidth = 2;
+      my_canvas.fillStyle = "black";
+      my_canvas.stroke();
+      my_canvas.fill();
+      my_canvas.closePath();
+
+      my_canvas.beginPath();
+      my_canvas.arc(600, 200, 75, (Math.PI/180)*0, (Math.PI/180)*360, false);
+      my_canvas.strokeStyle = "black";
+      my_canvas.lineWidth = 4;
+      my_canvas.fillStyle = "yellow";
+      my_canvas.stroke();
+      my_canvas.fill();
+      my_canvas.closePath();
+
+      my_canvas.beginPath();
+      my_canvas.arc(600, 200, 25, (Math.PI/180)*0, (Math.PI/180)*360, false);
+      my_canvas.lineWidth = 2;
+      my_canvas.fillStyle = "black";
+      my_canvas.stroke();
+      my_canvas.fill();
+      my_canvas.closePath();
+
+      my_canvas.fillStyle = "black";
+      my_canvas.lineWidth = 6;
+      my_canvas.beginPath();
+      my_canvas.fillRect(375,400,50,50);
+      my_canvas.stroke();
+      my_canvas.closePath();
+
+      my_canvas.lineWidth = 6;
+      my_canvas.beginPath();
+      my_canvas.arc(400, 400, 100, (Math.PI/180)*0, (Math.PI/180)*-180, false);
+      my_canvas.stroke();
+      my_canvas.closePath();
+
+      my_canvas.fillStyle = "Green";
+      my_canvas.font = '10000px _sans';
+      my_canvas.fillText ("Hello, my friends!, Do you scare me?", 325, 650);
+
+
+    }
+    </script>
+
+  </body>
+</html>
