@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript Testplayer</title>
+    <link rel="stylesheet" href="first-js.css">
+  </head>
+  <body>
+    <p id="NB"></p>
+    <p id="Win"></p>
+    <p id="WR"></p>
+    <br>
+    <br>
+
+    <h1>We have a fomula for caculating the spooting range in world of tanks</h1>
+    <p id="viewRange"></p>
+    <p id="SCO140"></p>
+    <p id="SpotRange"></p>
+    <p id="showformula"></p>
+
+    <p>
+    <button type="button" onclick="spootingRangeCaculate(0)">stationary</button>
+    <button type="button" onclick="spootingRangeCaculate(1)">AfterFire</button>
+    <button type="button" onclick="formula()">Show the formula</button>
+    </p>
+    <br>
+    <br>
+
+    <h1>Tier 9-10 vehicles I got</h1>
+    <p id="Tier10vehicles"></p>
+    <button type="button" onclick="vehicles()">show all vechales I got</button>
+    <br>
+    <br>
+
+    <h1>tier level we have in world of tanks</h1>
+    <p id = "Tierlevel"></p>
+
+    <h1>Tanks perform</h1>
+    <button onclick="T110E5Perform()">T110E5</button>
+    <p id="T110E5P"></p>
+    <button onclick="FV215BPerform()">FV215B</button>
+    <p id="FV215BP"></p>
+
+    <h1>Tanks list 2 (tier 9-10)</h1>
+    <p id="Tankslist2"></p>
+    <button onclick="Tankslist()"> click to open</button>
+
+
+    <script src="myscript.js"></script>
+
+    <script>
+    var numberBattles = 6370
+    var victories = 3504
+    var winRate = victories/numberBattles * 100
+    document.getElementById("NB").innerHTML = "Number of Battles: " + numberBattles;
+    document.getElementById("Win").innerHTML = "NUmber of Victories: " + victories;
+    document.getElementById("WR").innerHTML = "My winRate is: " + winRate;
+
+    function spootingRangeCaculate(sw)
+    {
+      let viewRangeT110E5 = 460;
+      let StationarycancealmentObj140 = 32.9;
+      let punishmentforFiring = 26.39;
+      let SR;
+      if(sw == 0)
+      {
+        SR = viewRangeT110E5-(viewRangeT110E5-50)*(StationarycancealmentObj140 /100);
+        StationarycancealmentObj140 = 32.9
+      }
+      else
+      {
+        SR = viewRangeT110E5-(viewRangeT110E5-50)*((StationarycancealmentObj140-punishmentforFiring)/100)
+        StationarycancealmentObj140 = StationarycancealmentObj140 - punishmentforFiring
+      }
+      document.getElementById("viewRange").innerHTML = "View Range: " + viewRangeT110E5;
+      document.getElementById("SCO140").innerHTML = "cancealment for Obj140: " + StationarycancealmentObj140;
+      document.getElementById("SpotRange").innerHTML = "Spotting Range: " + SR;
+    }
+
+    function formula()
+    {
+      document.getElementById("showformula").innerHTML = "viewRange - (viewRange - 50) * cancealment / 100)";
+    }
+
+    function vehicles()
+    {
+      let vehiclesIgot = ["T110E5", "FV215b", "Object140", "T62A", "WZ-1115A", "Strv103B", "Grille15", "M53/M55", "Mauschen", "T-54ltwt", "SkodaT50"];
+      let text = "";
+      let i;
+      for (i = 0; i < vehiclesIgot.length; i++)
+      {
+        text +=vehiclesIgot[i] + "<br>";
+      }
+      document.getElementById("Tier10vehicles").innerHTML = text;
+    }
+
+    let text = "";
+    let i = 1;
+    while (i <= 10)
+    {
+      text += "<br>The tier " + i
+      i++;
+    }
+    document.getElementById("Tierlevel").innerHTML = text;
+
+    var t110e5 = {Name:"T110E5", Nation:"USA", Type:"Heavy Tank", Style:"Normal", Armor:"Good", difficulty:"Easy"};
+    var FV215b = {Name:"FV215B", Nation:"U.K.", Type:"Heavy Tank", Style:"defend", Armor:"bad", difficulty:"Easy"};
+    var Obj140 = {Name:"Obj140", Nation:"U.S.S.R.", Type:"Medium Tank", Style:"Attack", Armor:"normal", difficulty:"hard"};
+    var wz1115A = {Name:"WZ-1115A", Nation:"China", Type:"Heavy Tank", Style:"Attack", Armor:"bad", difficulty:"hard"};
+    var grille15 = {Name:"Grile15", Nation:"Germany", Type:"Tank destroyer", Style:"Attack", Armor:"No", difficulty:"normal"};
+    var strv103B = {Name:"Strv103B", Nation:"Sweden", Type:"Tank destroyer", Style:"defend", Armor:"good", difficulty:"hard"};
+
+    function  T110E5Perform()
+    {
+      let text = "";
+      let x;
+      for (x in t110e5)
+      {
+        text +=t110e5[x] + " ";
+      }
+      document.getElementById("T110E5P").innerHTML = text;
+    }
+
+    function FV215BPerform()
+    {
+
+      let text = "";
+      let x;
+      for (x in FV215b)
+      {
+        text +=FV215b[x] + " ";
+      }
+      document.getElementById("FV215BP").innerHTML = text;
+    }
+
+    function Tankslist()
+    {
+      let vehicless = ['T110E5', 'FV215b', "Object140", "T62A", "WZ-1115A", "Strv103B", "Grille15", "M53/M55", "Mauschen", "T-54ltwt", "SkodaT50"];
+      let text=" ";
+      let x;
+      for(x of vehicless)
+      {
+        text += vehicless[x] + " ";
+      }
+      document.getElementById("Tankslist2").innerHTML = text;
+    }
+
+    //why all the variable in my array are undefined for the for of loop?
+
+    //document.getElementById("Tanks").innerHTML = FV215b.Nation;
+    //document.getElementById("Tanks").innerHTML = strv103B.Armor;
+
+
+
+    </script>
+
+</body>
+</html>
