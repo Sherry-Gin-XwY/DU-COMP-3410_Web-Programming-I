@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p>hahaha</p>
+    <p id = "E5"></p>
+    <p id = "IV"></p>
+    <p id = "40T"></p>
+    <p id="tankslist"></p>
+    <button onclick="Tanklist()"> click to open</button>
+
+    <script>
+
+    var Warship = {
+      shipName: 'NoName'
+      shiptype: 'ship',
+      shipTorpedoes:'No',
+      shipMaxSpeed:'25'
+      shipAirCraf:'No'
+    };
+
+    var Yamato = Object.create(Warship);
+    Yamato.shipName = 'Yamato'
+    Yamato.shiptype = 'battleship'
+    Yamato.shipMaxSpeed = '28.4';
+    Yamato.shipAirCraf = 'yes';
+    Yamato.displayType();
+
+    doecument.getElementById('ya').innerHTML = Yamato.shipName + 'is a ' + Yamato.shiptype + Yamato.shipMaxSpeed + ", " + "torpedoes" + Yamato.shipTorpedoes + "AirCraft" + yamato.shipAirCraf;
+
+
+
+    function()
+    {
+      var conclusion =  this.national + ' ' + 'tier' + this.tiers + this.type + 'has' + this.gunDepression + 'and' + this.dpm + 'too op!'
+      console.log(conclusion);
+    }
+
+    T110E5.displayTanks();
+
+    var  Hindenburg = Object.create(Warship);
+    Hindenburg.shiptype = 'Cruiser'
+    Hindenburg.shipTorpedoes = 'yes'
+    Hindenburg.shipMaxSpeed = '31.5'
+    Hindenburg.displayType();
+
+    var Midway = Object.create(Warship);
+    Midway.shiptype = 'Aircraft Carrier';
+    Midway.shipMaxSpeed = '33';
+    Midway.shipAirCraf = 'yes';
+    </script>
+
+    <script>
+    function Person(first, last, age, eye) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eye;
+}
+
+var myFather = new Person("John", "Doe", 50, "blue");
+var myMother = new Person("Sally", "Rally", 48, "green");
+
+document.getElementById("demo").innerHTML =
+"My father is " + myFather.age + ". My mother is " + myMother.age;
+
+    </script>
+
+    <script>
+
+    //function Tanks(name, national, tiers, type, gunDepression, dpm, hitPoints, topspeed, concealment, viewRange)
+    function Tanks(name, national, tiers, type)
+    {
+      this.name = name;
+      this.national = national;
+      this.tiers = tiers;
+      this.type = type;
+      //this.gunDepression = gunDepression;
+      //this.dpm = dpm;
+      //this.hitPoints = hitPoints;
+      //this.topspeed = concealment;
+      //this.concealment = concealment;
+      //this.viewRange = viewRange;
+      //this.displayTanks = displayTanks;
+    }
+    /*
+    var T110E5 = new Tanks('T110E5', 'USA', 'X', 'Heavy Tanks', '-8, 15', '2844', '2200', '37', '6.54', '460');
+    var WTaufPzIV = new Tanks('Waffentrager auf Pz.IV', 'Germany', 'IX', 'Tank Destroyer', '-5, 45', '3357', '1600', '38', '19.68', '463');
+    var Lorr40t = new Tanks('Lorraine 40T', ' France', 'VIII', 'Medium Tank', '-8, 15', '1715', '1300', '60', '17.97', '432');
+    var M12 = new Tanks('M12', 'USA', 'VII', 'SPG', '-3, 45', '1581', '350', '38.6', '11.69', '270');
+    var WZ131 = new Tanks('WZ131', 'China', 'VII''Light Tank', '-5, 20', '1938', '900', '60', '19.44', '425');
+    */
+    var T110E5 = new Tanks('T110E5', 'USA', 'X', 'Heavy Tanks');
+    var WTaufPzIV = new Tanks('Waffentrager auf Pz.IV', 'Germany', 'IX', 'Tank Destroyer');
+    var Lorr40t = new Tanks('Lorraine 40T', ' France', 'VIII', 'Medium Tank');
+    var M12 = new Tanks('M12', 'USA', 'VII', 'SPG');
+    var WZ131 = new Tanks('WZ131', 'China', 'VII', 'Light Tank');
+
+    document.getElementById('E5').innerHTML = T110E5.name + " is a tier " + T110E5.tiers + " Tanks, " + "it is from " + T110E5.national;
+
+    WTaufPzIV.gunDepression = "-5, 15"
+    document.getElementById("IV").innerHTML = WTaufPzIV.name + " is a tier " + WTaufPzIV.tiers + " Tnaks, " + "it is from " + WTaufPzIV.national +" and his gunDepression is " + WTaufPzIV.gunDepression;
+
+    Lorr40t.gunDepression = "-8, 15"
+    Lorr40t.dpm = "1715"
+    document.getElementById('40T').innerHTML = Lorr40t.name + " is a tier " + Lorr40t.tiers + " Tnaks, " + "it is from " + Lorr40t.national +" and his gunDepression is " + Lorr40t.gunDepression + " and his DPM has " + Lorr40t.dpm;
+
+    function Tanklist()         //I plan to do in here is store some object inthe list, the read the information from the object one by one in each objets use loop, but I gots some trouble when I implement it.
+    {
+      let list = [T110E5, WTaufPzIV, Lorr40t, M12, WZ131]
+      let text = "";
+      let x;
+      let i = 1;
+      for(i = 1; i < list.length; i++)
+      {
+        for(x in list[i])
+        {
+          text += list[x] +"";
+        }
+
+        document.getElementById("tankslist").innerHTML = text;
+      }
+    }
+
+  //Windows
+    var Windows;
+
+    function openWindows()
+    {
+
+      Windows = window.open("", "Windows", "width = 800, height = 800");
+      alert("loading, pleast wait! and get some drink")
+      confirm("you just opened a new window!")
+      Windows.document.write("<p> here is your new window!</p>");
+      Windows.focus();
+
+    }
+
+    function closeWindows()
+    {
+      if(Windows)
+      {
+        Windows.close();
+        confirm("window already been close")
+
+      }
+    }
+
+    function mouseDown()
+    {
+      document.getElementById("image1").src = "file/1489207959374.jpg";
+    }
+
+    function mouseUp()
+    {
+      document.getElementById("image1").src = "file/1489204822237.jpg"
+    }
+
+
+
+
+    </script>
+    <img src="file/1489204822237.jpg" id="image1" onmousedown="mouseDown()" onmouseup = "mouseUp()">hahah
+    <button onclick="openWindows()">Open "myWindow"</button>
+    <button onclick="closeWindows()">Close "myWindow"</button>
+
+
+
+  </body>
+</html>
