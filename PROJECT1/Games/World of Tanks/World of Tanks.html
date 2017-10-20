@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>World of Tanks</title>
+    <style>
+    table, th, td{
+      border: 1px solid black
+    }
+    </style>
+  </head>
+  <body>
+    <h1 id = "Decription"></h1>
+    <h1>World of Tanks</h1>
+    <video src="Media/World of Tanks trailer.mp4" controls poster="images/world of tanks.jpg" width="960" height="540">
+    </video>
+    <p><strong>World of Tnks</strong> is a team-based massively multiplayer online game dedicated to armored warfare in the mid-20century.</p>
+    <p>Throw yourself into epic tank battles shoulder to shoulder with other steel cowboys to domiunate the world with tank supremacy!</p>
+
+    <h1>Type of Tanks</h1>
+    <ul>
+      <li><a href="#LT">Light Tanks</a></li>
+      <li><a href="#MT">Medium Tanks</a></li>
+      <li><a href="#HT">Heavy Tanks</a></li>
+      <li><a href="#TD">Tank Destroyer</a></li>
+      <li><a href="#SPG">Self-Propelled Guns</a></li>
+    </ul>
+
+    <h3 id = "LT"></h3>
+    <h3>Light Tanks</h3>
+    <img src="images/1390.jpg" alt="amx 13 90" width="480" height="270">
+    <img src="images/T49.jpg" alt="T49" width="480" height="270">
+    <img src="images/251.jpg" alt="RU 251" width="480" height="270">
+    <p><strong>Light Tanks</strong> are small, agile tank which often take the roles of flankers or scout.</p>
+    <p>They are represented by a solid green or red diamond on the mini-map and over tehir respective target marker.</p>
+
+    <br><hr><br>
+
+    <h3 id = "MT"></h3>
+    <h3>Medium Tanks</h3>
+    <img src="images/Tiger1 TigerP.jpg" alt="Tiger1 Tiger(P)" width="480" height="270">
+    <img src="images/obj_430.jpg" alt="obj_430" width="480" height="270">
+    <img src="images/AX.JPG" alt="Centurion Action X" width="480" height="270">
+    <p><strong>Medium tanks</strong> are multi-purpose tanks with balanced characteristic that can assume many different roles in game.</p>
+    <p>They are represented by a two-piece green or red diamond on the mini map and over their respective target marker.</p>
+
+    <br><hr><br>
+
+    <h3 id="HT"></h3>
+    <h3>Heavy Tanks</h3>
+    <img src="images/MAUS.jpg" alt="MAUS" width="480" height="270">
+    <img src="images/E5.jpg" alt="T110E5" width="480" heigh="270">
+    <img src="images/5A.jpg" alt="WZ111-5A" width="480" height="270">
+    <p><strong>Heavy Tanks</strong> are large, heavy vehicles which often act as a team's vanguard.</p>
+    <p>They are represneted by a three-piece green or red diamond on the mini-map and over their resprective target marker.</p>
+
+    <br><hr><br>
+
+    <h3 id = "TD"></h3>
+    <h3>Tank Destroyer</h3>
+    <img src="images/103B.jpg" alt="Strv 103B" width="480" height="270">
+    <img src="images/grille15.jpg" alt="Grille 15" width="480" height="270">
+    <img src="images/263.jpg" alt="obj 263" width="480" height="270">
+    <p><strong>Tank destoryers</strong>(also know as TDs for short) are specialized armored fighting vehicles designed specifically for destroying heavily armored tanks.</p>
+    <p>They are represented by a green or red inverted traiangle on the mini-mao and over their repective target marker.</p>
+
+    <br><hr><br>
+
+    <h3 id = "SPG"></h3>
+    <h3>Self-Propelled Guns</h3>
+    <img src="images/5355.jpg" alt="M53/M55" width="480" height="270">
+    <img src="images/SPGS.jpg" alt="SPGS" width="480" height="270">
+    <img src="images/gu.jpg" alt="Schwerer Gustav" width="480" height="270">
+    <p><strong>Self-propelled Guns</strong>(also known as artilery, SPGs, arty) are fragile armored vehicles which provide indirect fire support from a long distance.</p>
+    <p>They are represented by a green or red square in the mini-mip and over their respective target marker.</p>
+
+    <br><hr><br>
+
+    <h3>Game Mechanics</h3>
+    <dl>
+      <a href="https://www.youtube.com/watch?v=UFktFSJZPsQ&t=43s"target="_black"><dt>Armor Penetration</dt></a><br>
+      <dd>How do aromor penetration mechanic works?</dd>
+      <dd>What is the difference between shell types?</dd>
+      <dd>Which shell type should you use, depending in the circumstance?</dd>
+
+
+      <hr>
+
+      <a href="https://www.youtube.com/watch?v=WX4o2Yaf0hU&t=6s" target="_black"><dt>Block Damage</dt></a><br>
+      <dd>How does the armor work to protect your vechales?</dd>
+
+      <hr>
+
+      <a href="https://www.youtube.com/watch?v=7qrQ1UPltXg&t=16s" target="_black"><dt>Visibility System: view range</dt></a><br>
+      <dd>What are the vechale checkpoints and view range ports?</dd>
+      <dd>What do they do? What do all the circles on the minimap mean?</dd>
+
+      <br>
+      <p>We have a caculate for looking the sppoting range between your vehicle and your enemy vehicle</p>
+
+      <form id="data" action="data.php" method="post">
+      <fieldset>
+        <legend>Spooting Range</legend>
+        View Range: <input id="viewRange" type = 'number'>
+        <br>
+        Concealment: <input id="concealment" type="number">
+        <br>
+        Concealment after fire: <input id="fireconcealment" type="number">
+      </fieldset>
+      </form>
+
+      <p>Click caculate to look at the distance between your vehicle and your enemy</p>
+      <p id="formula"></p>
+      <button onclick="Calculate(0)"> Stationary</button>
+      <button onclick="Calculate(1)"> After firing</button>
+      <button onclick="formula()"> Show the formula</button>
+      <p id="vrc"></p>
+
+      <script>
+
+      function Calculate(sw)
+      {
+        let vr = document.getElementById("viewRange").value;
+        let sc = document.getElementById("concealment").value;
+        let af = document.getElementById("fireconcealment").value;
+        let result;
+
+        if(sw == 0)
+        {
+          result = vr-(vr-50)*(sc/100);
+          document.getElementById("vrc").innerHTML="result:" + result;
+        }
+        else
+        {
+          result = vr - (vr-50) * (af/100)
+          document.getElementById("vrc").innerHTML = "result:" +result;
+        }
+      }
+
+      function formula()
+      {
+        document.getElementById("formula").innerHTML = "viewRange - (viewRange - 50) * concealment/100)";
+      }
+
+      </script>
+
+    </dl>
+
+    <br><hr><br>
+    <h2 id="amount"></h2>
+    <h2>The amount of the vechales in each countries</h2>
+
+
+    <table>
+      <tr>
+        <th>Nation</th>
+        <th>Light</th>
+        <th>Medium</th>
+        <th>Heavy</th>
+        <th>TD</th>
+        <th>SPGs</th>
+        <th>Total</th>
+        <th>all</th>
+
+      </tr>
+      <tr>
+        <td>USA</td>
+        <td>14</td>
+        <td>13</td>
+        <td>8</td>
+        <td>16</td>
+        <td>11</td>
+        <td>62</td>
+        <td rowspan="4">267</td>
+      </tr>
+      <tr>
+        <td>Germany</td>
+        <td>15</td>
+        <td>20</td>
+        <td>16</td>
+        <td>19</td>
+        <td>11</td>
+        <td>81</td>
+      </tr>
+      <tr>
+        <td>U.S.S.R</td>
+        <td>17</td>
+        <td>16</td>
+        <td>13</td>
+        <td>16</td>
+        <td>10</td>
+        <td>72</td>
+
+      </tr>
+      <tr>
+        <td>U.K</td>
+        <td>8</td>
+        <td>13</td>
+        <td>6</td>
+        <td>16</td>
+        <td>9</td>
+        <td>52</td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td colspan="3">Normal tanks:159</td>
+        <td colspan="2">special tanks:108</td>
+      </tr>
+    </table>
+
+    <br><hr><br>
+
+    <nav>
+      <a href="#Decription">Description</a> |
+      <a href="#LT">Light Tanks</a> |
+      <a href="#MT">Medium Tanks</a> |
+      <a href="#HT">Heavy Tanks</a> |
+      <a href="#TD">Tank Destroyer</a> |
+      <a href="#SPG">Self-Propelled Guns</a> |
+      <a href="../艦隊これくしょん/艦隊これくしょん.html">艦隊これくしょん</a> |
+      <a href="../World of Warships/World of Warships.html">World of Warships</a> |
+      <a href="../../Project1.html">HomePage</a>
+    </nav>
+
+    <footer>
+      <p>Posted by: Weiye Xu</p>
+      <p>Contact information: <a href="mailto: XuWeiyeSherry@gmail.com">Email</a> or <a href="tel:+17206306796">phone</a></p>
+      <p><small>Copyright&copy: all the information are from the internet:)</small></p>
+  </footer>
+  </body>
+</html>
